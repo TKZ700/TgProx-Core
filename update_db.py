@@ -14,7 +14,6 @@ supabase: Client = create_client(url, key)
 
 def send_proxies():
     proxies = collect_proxies()
-    supabase.table("proxies").delete().neq("id", 0).execute()
     rows = []
     id = 1
     for proxy in proxies:
@@ -22,12 +21,12 @@ def send_proxies():
         rows.append({"id": id, "url": proxy, "country": get_country(server)})
         id += 1
 
+    supabase.table("proxies").delete().neq("id", 0).execute()
     supabase.table("proxies").insert(rows).execute()
 
 
 def send_configs():
     configs = collect_configs()
-    supabase.table("configs").delete().neq("id", 0).execute()
     rows = []
     id = 1
     for config in configs:
@@ -41,6 +40,7 @@ def send_configs():
         )
         id += 1
 
+    supabase.table("configs").delete().neq("id", 0).execute()
     supabase.table("configs").insert(rows).execute()
 
 
