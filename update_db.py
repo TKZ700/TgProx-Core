@@ -34,7 +34,7 @@ def send_configs():
         rows.append(
             {
                 "id": id,
-                "url": config,
+                "url": "hiddify://import/" + config,
                 "config": b64encode(config.encode("utf-8")).decode("utf-8"),
                 "country": get_country(get_ip_and_port(config)[0]),
             }
