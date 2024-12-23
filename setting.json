@@ -1,0 +1,23 @@
+{
+  "proxy_channels": [
+    "NPROXY",
+    "Myporoxy",
+    "iproxy",
+    "proxymtprotoir",
+    "Proxy_Qavi",
+    "proxyy",
+    "vpn_ocean"
+  ],
+  "config_channels": [
+    "hormozvpn",
+    "prrofile_purple",
+    "VmessProtocol",
+    "PrivateVPNs",
+    "msv2raynp",
+    "SvnTeam",
+    "SvnV2ray",
+    "RadixVPN",
+    "v2rayngvpn",
+    "filterraygan"
+  ]
+}

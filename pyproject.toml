@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "tgprox"
+version = "0.1.0"
+description = "TgProx Collector's Core"
+authors = ["TKZ700 <https://github.com/TKZ700>, ItsKia <https://github.com/Kia2009>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+beautifulsoup4 = "^4.12.3"
+requests = "^2.32.3"
+supabase = "^2.10.0"
+geoip2 = "^4.8.1"
+dnspython = "^2.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
