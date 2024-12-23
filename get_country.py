@@ -45,8 +45,11 @@ def get_ips(node):
 
 def get_country_from_ip(ip):
     if not is_valid_ip_address(ip):
-        ips_list = list(get_ips(ip))
-        ip = ips_list[0]
+        try:
+            ips_list = list(get_ips(ip))
+            ip = ips_list[0]
+        except Exception:
+            ip = "127.0.0.1"
     try:
         with geoip2.database.Reader("geoip-lite-country.mmdb") as reader:
             response = reader.country(ip)
