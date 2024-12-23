@@ -45,7 +45,7 @@ def get_messages(channel_link):
     )
 
     codes = []
-    for message in final_text[-5:]:
+    for message in final_text[-10:]:
         code_tags = document.find_all("code")
         for code_tag in code_tags:
             code_content = code_tag.text.strip()
