@@ -36,6 +36,7 @@ def send_configs():
                 "id": id,
                 "url": "hiddify://import/" + config_b64,
                 "config": config_b64,
+                "name": config.split("#")[1],
                 "country": get_country(get_ip_and_port(config)[0]),
             }
         )
