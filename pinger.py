@@ -31,7 +31,7 @@ def ping(url):
         ip, port = get_ip_and_port(url)
 
         if ip and port:
-            sock = socket.create_connection((ip, port), timeout=5)
+            sock = socket.create_connection((ip, port), timeout=3)
             sock.close()
             return True
         else:
