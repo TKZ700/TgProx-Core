@@ -26,23 +26,9 @@ def get_ip_and_port(url):
         return "127.0.0.1", "443"
 
 
-def ping_proxy(proxy):
-    ip, port = get_ip_and_port(proxy)
-
-    if ip and port:
-        try:
-            sock = socket.create_connection((ip, port), timeout=5)
-            sock.close()
-            return True
-        except Exception:
-            return False
-    else:
-        return False
-
-
-def ping_config(url):
+def ping(url):
     try:
-        ip, port = False, False
+        ip, port = get_ip_and_port(url)
 
         if ip and port:
             sock = socket.create_connection((ip, port), timeout=5)

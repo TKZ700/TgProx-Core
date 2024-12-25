@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import json
 from datetime import datetime, timedelta
-from pinger import ping_config
+from pinger import ping
 
 
 current_date_time = datetime.now()
@@ -45,7 +45,7 @@ def get_messages(channel_link):
     )
 
     codes = []
-    for message in final_text[-5:]:
+    for message in final_text[-3:]:
         code_tags = document.find_all("code")
         for code_tag in code_tags:
             code_content = code_tag.text.strip()
@@ -97,9 +97,9 @@ def collect_configs():
     configs = remove_duplicates(collected)
 
     for config in configs:
-        is_working = ping_config(config)
+        is_working = ping(config)
         if not is_working:
-            collected.remove(config)
+            configs.remove(config)
 
     index = 0
     for config in configs:

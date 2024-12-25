@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import json
-from pinger import ping_proxy
+from pinger import ping
 
 
 def read_db():
@@ -50,7 +50,7 @@ def collect_proxies():
         proxies.extend(get_messages(link))
 
     for proxy in proxies:
-        is_working = ping_proxy(proxy)
+        is_working = ping(proxy)
         if not is_working:
             proxies.remove(proxy)
 
