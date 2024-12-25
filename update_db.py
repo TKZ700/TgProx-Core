@@ -30,11 +30,12 @@ def send_configs():
     rows = []
     id = 1
     for config in configs:
+        config_b64 = b64encode(config.encode("utf-8")).decode("utf-8")
         rows.append(
             {
                 "id": id,
-                "url": "hiddify://import/" + config,
-                "config": b64encode(config.encode("utf-8")).decode("utf-8"),
+                "url": "hiddify://import/" + config_b64,
+                "config": config_b64,
                 "country": get_country(get_ip_and_port(config)[0]),
             }
         )
