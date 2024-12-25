@@ -104,9 +104,9 @@ def collect_configs():
     index = 0
     for config in configs:
         if index == 0:
-            config_string = f"#✅Updated on {final_string}:00 |🗝️ Collected by TgProx"
+            config_string = f"#✅ Updated on {final_string}:00 | 🔑 Collected by TgProx"
         else:
-            config_string = f"#🗝️ Collected by TgProx | Config No.{index}"
+            config_string = f"#🔑 Collected by TgProx | Config No.{index}"
         config_final = config + config_string
         configs[index] = config_final
         index += 1
