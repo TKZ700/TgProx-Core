@@ -17,8 +17,17 @@ def send_proxies():
     rows = []
     id = 1
     for proxy in proxies:
+        ip, port = get_ip_and_port(proxy)
         server = proxy.split("=")[1].split("&")[0]
-        rows.append({"id": id, "url": proxy, "country": get_country(server)})
+        rows.append(
+            {
+                "id": id,
+                "url": proxy,
+                "country": get_country(server),
+                "ip": ip,
+                "port": port,
+            }
+        )
         id += 1
 
     supabase.table("proxies").delete().neq("id", 0).execute()
@@ -30,6 +39,7 @@ def send_configs():
     rows = []
     id = 1
     for config in configs:
+        ip, port = get_ip_and_port(config)
         config_b64 = b64encode(config.encode("utf-8")).decode("utf-8")
         rows.append(
             {
@@ -38,7 +48,8 @@ def send_configs():
                 "config": config_b64,
                 "name": config.split("#")[1],
                 "country": get_country(get_ip_and_port(config)[0]),
-                "ip":
+                "ip": ip,
+                "port": port,
             }
         )
         id += 1
