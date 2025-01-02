@@ -23,7 +23,7 @@ def get_ip_and_port(url):
             return False, False
         return ip, port
     except Exception:
-        return "127.0.0.1", "443"
+        return "127.0.0.1", "8080"
 
 
 def ping(url):

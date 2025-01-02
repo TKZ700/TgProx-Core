@@ -38,6 +38,7 @@ def send_configs():
                 "config": config_b64,
                 "name": config.split("#")[1],
                 "country": get_country(get_ip_and_port(config)[0]),
+                "ip":
             }
         )
         id += 1
